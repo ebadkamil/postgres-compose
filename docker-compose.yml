@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   db:
+    container_name: postgres
     image: postgres:14.1-alpine
     restart: always
     environment:
@@ -10,6 +11,30 @@ services:
       - '5432:5432'
     volumes:
       - db:/var/lib/postgresql/data
+      - /home/ebadkamil/dvdrental.tar:/dvdrental.tar
+    networks:
+      - postgres
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@test.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_CONFIG_SERVER_MODE=False
+    volumes:
+       - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - postgres
+    restart: always
+
 volumes:
   db:
     driver: local
+  pgadmin:
+
+networks:
+  postgres:
+    driver: bridge
