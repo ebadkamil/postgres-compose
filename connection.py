@@ -57,3 +57,27 @@ class PostGreConnection(metaclass=MetaPostGreConnection):
             self._db.close()
         self._db = None
 
+
+class Executor:
+    _db = PostGreConnection()
+
+    def __init__(self):
+        self._cursor = self._db.cursor()
+
+    def execute(self, query):
+        self._cursor.execute(query)
+
+    def fetchall(self):
+        return self._cursor.fetchall()
+
+    def close(self):
+        self._cursor.close()
+
+
+if __name__ == '__main__':
+    connection = init_postgre_connection('dvdrental', 'postgres', 'postgres', 'localhost', '5432')
+    c = Executor()
+    c.execute("SELECT first_name, last_name FROM customer")
+    print(c.fetchall())
+
+    commit_and_close_connections()
