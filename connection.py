@@ -1,13 +1,12 @@
 import weakref
-import psycopg2
 
+import psycopg2
 
 _GLOBAL_POSTGRE_CONNECTION = None
 _global_connections = dict()
 
 
 def init_postgre_connection(dbname, user, password, host, port):
-    # reset all connections first
     global _GLOBAL_POSTGRE_CONNECTION
     _GLOBAL_POSTGRE_CONNECTION = None
 
@@ -74,8 +73,10 @@ class Executor:
         self._cursor.close()
 
 
-if __name__ == '__main__':
-    connection = init_postgre_connection('dvdrental', 'postgres', 'postgres', 'localhost', '5432')
+if __name__ == "__main__":
+    connection = init_postgre_connection(
+        "dvdrental", "postgres", "postgres", "localhost", "5432"
+    )
     c = Executor()
     c.execute("SELECT first_name, last_name FROM customer")
     print(c.fetchall())
