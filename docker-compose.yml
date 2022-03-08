@@ -11,7 +11,7 @@ services:
       - '5432:5432'
     volumes:
       - db:/var/lib/postgresql/data
-      - /home/ebadkamil/dvdrental.tar:/dvdrental.tar
+      - ./example_db/dvdrental.tar:/dvdrental.tar
     networks:
       - postgres
 
