@@ -1,8 +1,16 @@
-## Running postgres and pgadmin in a container
+## Running postgreSQL in a container
 
     docker-compose up
 
-## Open PgAdmin web interface:
+## Accessing and manipulating database from python
+
+    pip install requirements.txt
+    python db_proxy.py
+
+
+## PgAdmin web interface:
+
+`docker-compose` also run pgAdmin in a container. To access it follow the steps below.
 
     http://localhost:5050
     Username: admin@test.com
