@@ -8,7 +8,7 @@ _GLOBAL_POSTGRE_CONNECTION = None
 _global_connections = dict()
 
 
-@try_to_run(attempts=10, delay=1)
+@try_to_run(attempts=10, delay=2)
 def init_postgre_connection(dbname, user, password, host, port):
     global _GLOBAL_POSTGRE_CONNECTION
     _GLOBAL_POSTGRE_CONNECTION = None
