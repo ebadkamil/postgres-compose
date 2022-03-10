@@ -2,13 +2,13 @@ import weakref
 
 import psycopg2
 
-from utils import try_again
+from utils import try_to_run
 
 _GLOBAL_POSTGRE_CONNECTION = None
 _global_connections = dict()
 
 
-@try_again(attempts=10, delay=1)
+@try_to_run(attempts=10, delay=1)
 def init_postgre_connection(dbname, user, password, host, port):
     global _GLOBAL_POSTGRE_CONNECTION
     _GLOBAL_POSTGRE_CONNECTION = None
