@@ -67,3 +67,17 @@
 #### Selecting data from table
 
     SELECT * FROM name_of_table;
+
+    SELECT * from name_of_table ORDER BY column_name DESC;
+
+    SELECT * FROM name_of_table ORDER BY first_col, second_col;
+
+    SELECT * FROM name_of_table LIMIT 5;
+
+    SELECT first_col, second_col FROM name_of_table;
+
+    SELECT first_col AS something, second_col AS something FROM name_of_table;
+
+    SELECT DISTINCT first_col FROM name_of_table;
+
+    SELECT COUNT(emp_id) FROM name_of_table;
