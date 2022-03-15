@@ -27,7 +27,7 @@
 
     DESCRIBE name_of_table;
 
-#### Delere table
+#### Delete table
 
     DROP TABLE name_of_table;
 
@@ -81,3 +81,7 @@
     SELECT DISTINCT first_col FROM name_of_table;
 
     SELECT COUNT(emp_id) FROM name_of_table;
+
+    SELECT COUNT(emp_id) FROM name_of_table WHERE sex = 'F' AND birth_date > '1970-01-01';
+
+    SELECT AVG(salary) FROM name_of_table;
